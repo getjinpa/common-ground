@@ -1,0 +1,30 @@
+{
+  "demo": true,
+  "demoMessage": "Sample template — Common Ground is a fictional organisation",
+  "site": {
+    "title": "Common Ground",
+    "description": "A secular mindfulness and community wellness center — offering meditation, yoga, and community programs for everyone in Portland, Oregon.",
+    "url": "https://username.github.io",
+    "basePath": "",
+    "language": "en"
+  },
+  "navigation": {
+    "main": [
+      { "label": "Home",      "url": "/" },
+      { "label": "Programs",  "url": "/programs/" },
+      { "label": "Community", "url": "/community/" },
+      { "label": "Blog",      "url": "/blog/" },
+      { "label": "Contact",   "url": "/contact/" }
+    ]
+  },
+  "contact": {
+    "address": "2847 NE Alberta Street, Portland, OR 97211",
+    "email": "hello@commongroundpdx.org",
+    "phone": "+1 (503) 555-0198"
+  },
+  "seo": {
+    "titleTemplate": "%s — Common Ground",
+    "ogImage": ""
+  },
+  "jinpaKey": ""
+}

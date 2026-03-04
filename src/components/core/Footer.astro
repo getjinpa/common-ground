@@ -1,0 +1,92 @@
+---
+import { withBase } from '../../utils/paths';
+
+interface Props {
+  siteConfig: any;
+}
+const { siteConfig } = Astro.props;
+const year = new Date().getFullYear();
+const contact = siteConfig?.contact ?? {};
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href={withBase('/')} class="footer__logo" aria-label="Common Ground — Home">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="18" cy="28" rx="13" ry="3.5" fill="rgba(212,197,169,0.4)"/>
+            <path d="M18 27 C18 27 18 16 18 12" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 18 C18 18 10 15 8 9 C8 9 16 9 18 18Z" fill="rgba(255,255,255,0.85)"/>
+            <path d="M18 14 C18 14 26 11 28 5 C28 5 20 5 18 14Z" fill="rgba(255,255,255,0.65)"/>
+            <path d="M18 23 C18 23 13 21 12 17 C12 17 17 17 18 23Z" fill="rgba(255,255,255,0.55)"/>
+          </svg>
+          <span class="footer__logo-text">Common Ground</span>
+        </a>
+        <p class="footer__mission">
+          A secular mindfulness and community wellness center in Portland, Oregon. Welcoming everyone, rooted in science and compassion.
+        </p>
+        <address style="font-style:normal; font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.7;">
+          {contact.address}<br/>
+          <a href={`tel:${contact.phone?.replace(/\s/g,'')}`}>{contact.phone}</a><br/>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </address>
+      </div>
+
+      <!-- Programs column -->
+      <div>
+        <p class="footer__col-title">Programs</p>
+        <ul class="footer__links">
+          <li><a href={withBase('/programs/')} class="footer__link">All Programs</a></li>
+          <li><a href={withBase('/programs/')} class="footer__link">Mindfulness Meditation</a></li>
+          <li><a href={withBase('/programs/')} class="footer__link">Yoga for Wellbeing</a></li>
+          <li><a href={withBase('/programs/')} class="footer__link">Stress Reduction</a></li>
+          <li><a href={withBase('/programs/')} class="footer__link">Breathwork</a></li>
+          <li><a href={withBase('/programs/')} class="footer__link">Community Sit</a></li>
+        </ul>
+      </div>
+
+      <!-- Community column -->
+      <div>
+        <p class="footer__col-title">Community</p>
+        <ul class="footer__links">
+          <li><a href={withBase('/community/')} class="footer__link">Our Story</a></li>
+          <li><a href={withBase('/community/')} class="footer__link">Member Stories</a></li>
+          <li><a href={withBase('/community/')} class="footer__link">Free Community Sit</a></li>
+          <li><a href={withBase('/community/')} class="footer__link">Sliding Scale</a></li>
+          <li><a href={withBase('/community/')} class="footer__link">Volunteer</a></li>
+          <li><a href={withBase('/blog/')} class="footer__link">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter column -->
+      <div>
+        <p class="footer__col-title">Stay Connected</p>
+        <div class="footer__newsletter">
+          <p>Weekly practice tips, event announcements, and community stories — delivered gently to your inbox.</p>
+          <form class="footer__newsletter-form" action="#" method="post" aria-label="Newsletter signup">
+            <input
+              type="email"
+              name="email"
+              class="footer__newsletter-input"
+              placeholder="Your email"
+              required
+              aria-label="Email address"
+            />
+            <button type="submit" class="footer__newsletter-btn">Join</button>
+          </form>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.35); margin-top:0.5rem;">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <p>&copy; {year} Common Ground Mindfulness Center, Portland OR. All rights reserved.</p>
+      <div class="footer__built-with">
+        Built with <a href="https://getjinpa.com" target="_blank" rel="noopener noreferrer">Jinpa</a>
+      </div>
+    </div>
+  </div>
+</footer>

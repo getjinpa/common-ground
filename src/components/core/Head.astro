@@ -1,0 +1,55 @@
+---
+import { withBase } from '../../utils/paths';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  siteConfig: any;
+}
+
+const { title, description, image, type = 'website', siteConfig } = Astro.props;
+
+const siteTitle = siteConfig.site.title || 'Common Ground';
+const pageTitle = title ? `${title} — ${siteTitle}` : `${siteTitle} — Portland Mindfulness & Wellness Center`;
+const pageDesc = description || siteConfig.site.description;
+const siteUrl = siteConfig.site.url || '';
+const ogImage = image || withBase('/images/og-default.jpg');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#5B7B5A" />
+
+<title>{pageTitle}</title>
+<meta name="description" content={pageDesc} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={`${siteUrl}${ogImage}`} />
+<meta property="og:site_name" content={siteTitle} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDesc} />
+<meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+<!-- Sitemap -->
+<link rel="sitemap" href={withBase('/sitemap-index.xml')} />

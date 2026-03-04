@@ -1,0 +1,223 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/paths';
+
+const programs = [
+  {
+    category: 'Meditation',
+    categoryColor: 'sage',
+    icon: '🧘',
+    title: 'Mindfulness Meditation — Open Sit',
+    teacher: 'Sarah Chen',
+    schedule: 'Tuesdays & Thursdays, 7:00 – 8:00 AM',
+    level: 'All levels',
+    levelClass: 'level--all',
+    cost: '$15 drop-in · $50/month unlimited',
+    freeIntro: true,
+    desc: 'Begin or deepen your meditation practice in a welcoming group setting. Each session includes a brief guided meditation, silent sitting, and optional gentle inquiry. Suitable for complete beginners and seasoned practitioners alike. We use secular, evidence-based mindfulness techniques.',
+  },
+  {
+    category: 'Meditation',
+    categoryColor: 'sage',
+    icon: '🌅',
+    title: 'Early Morning Awareness Practice',
+    teacher: 'Marcus Williams',
+    schedule: 'Monday, Wednesday, Friday, 6:30 – 7:30 AM',
+    level: 'Beginner friendly',
+    levelClass: 'level--beginner',
+    cost: '$12 drop-in · $40/month',
+    freeIntro: true,
+    desc: 'Start your day rooted and present. This early morning session focuses on body scan, breath awareness, and setting a compassionate tone for the day. An ideal entry point for those new to meditation or returning after a break.',
+  },
+  {
+    category: 'Meditation',
+    categoryColor: 'sage',
+    icon: '🤝',
+    title: 'Community Sit — Free Weekly Drop-in',
+    teacher: 'Various teachers',
+    schedule: 'Saturdays, 10:00 – 11:30 AM',
+    level: 'All levels',
+    levelClass: 'level--all',
+    cost: 'Free · Donations welcome',
+    freeIntro: false,
+    desc: 'Our flagship community offering — a free, open meditation sit held every Saturday morning. No registration required. Teachers rotate weekly, bringing fresh perspectives on mindfulness, compassion, and awareness. Tea and conversation follow the sit.',
+  },
+  {
+    category: 'Meditation',
+    categoryColor: 'sage',
+    icon: '💙',
+    title: 'Compassion & Loving-Kindness',
+    teacher: 'Priya Nair',
+    schedule: 'Sundays, 5:00 – 6:15 PM',
+    level: 'All levels',
+    levelClass: 'level--all',
+    cost: '$18 drop-in · $60/month',
+    freeIntro: false,
+    desc: 'A dedicated practice in metta (loving-kindness) and karuna (compassion) meditation. Learn to cultivate warmth toward yourself and others through structured cultivation practices. This class integrates modern psychology with ancient wisdom — always taught in a non-religious framework.',
+  },
+  {
+    category: 'Yoga',
+    categoryColor: 'peach',
+    icon: '🌿',
+    title: 'Yoga for Wellbeing',
+    teacher: 'Tamara González',
+    schedule: 'Mondays & Wednesdays, 6:30 – 7:45 PM',
+    level: 'All levels',
+    levelClass: 'level--all',
+    cost: '$18 drop-in · $60/month',
+    freeIntro: true,
+    desc: 'A gentle, body-positive yoga class that integrates breath, movement, and awareness. Modifications are always offered. We believe yoga is for every body — no flexibility required, no performance pressure. Mats and props available to borrow.',
+  },
+  {
+    category: 'Yoga',
+    categoryColor: 'peach',
+    icon: '🌙',
+    title: 'Restorative Yoga & Rest',
+    teacher: 'Tamara González',
+    schedule: 'Fridays, 7:00 – 8:30 PM',
+    level: 'All levels',
+    levelClass: 'level--all',
+    cost: '$20 drop-in',
+    freeIntro: false,
+    desc: 'Slow down and let the week dissolve. Restorative yoga uses bolsters, blankets, and blocks to support the body in passive poses held for 5–10 minutes. Deeply nourishing for the nervous system. Ideal for those managing stress, fatigue, or chronic pain.',
+  },
+  {
+    category: 'Breathwork',
+    categoryColor: 'sky',
+    icon: '🌬️',
+    title: 'Breathwork Foundations',
+    teacher: 'James Okafor',
+    schedule: 'Thursdays, 6:00 – 7:15 PM',
+    level: 'Beginner',
+    levelClass: 'level--beginner',
+    cost: '$16 drop-in · $55/month',
+    freeIntro: true,
+    desc: 'Explore the science and practice of conscious breathing. Learn techniques including diaphragmatic breathing, coherence breathing, and extended exhale practices. Backed by research in stress physiology and autonomic regulation.',
+  },
+  {
+    category: 'Breathwork',
+    categoryColor: 'sky',
+    icon: '⚡',
+    title: 'Dynamic Breathwork',
+    teacher: 'James Okafor',
+    schedule: 'Saturdays, 2:00 – 3:30 PM',
+    level: 'Intermediate',
+    levelClass: 'level--intermediate',
+    cost: '$25 drop-in',
+    freeIntro: false,
+    desc: 'A more intensive breathwork session combining active breathing patterns, grounding practices, and integration. Participants have reported insights, emotional release, and deep relaxation. Requires prior breathwork experience or completion of Breathwork Foundations.',
+  },
+  {
+    category: 'Courses',
+    categoryColor: 'sand',
+    icon: '📚',
+    title: 'MBSR: Mindfulness-Based Stress Reduction',
+    teacher: 'Sarah Chen & Dr. Yuki Tanaka',
+    schedule: '8 weeks, Thursday evenings 6:00 – 8:30 PM + one full-day retreat',
+    level: 'All levels',
+    levelClass: 'level--all',
+    cost: '$350 full · Sliding scale available',
+    freeIntro: true,
+    desc: 'The gold standard in secular mindfulness training. This 8-week program follows the curriculum developed by Jon Kabat-Zinn at the University of Massachusetts. Includes weekly sessions, home practice, and a day-long silent retreat. Research shows MBSR significantly reduces stress, anxiety, and depression.',
+  },
+  {
+    category: 'Courses',
+    categoryColor: 'sand',
+    icon: '🌱',
+    title: 'Introduction to Mindfulness — 6-Week Series',
+    teacher: 'Marcus Williams',
+    schedule: '6 weeks, Tuesdays 6:30 – 8:00 PM',
+    level: 'Beginner',
+    levelClass: 'level--beginner',
+    cost: '$180 · Sliding scale available',
+    freeIntro: false,
+    desc: 'A structured introduction to mindfulness for those completely new to the practice. Over 6 weeks, you\'ll build a solid foundation: understanding what mindfulness is (and isn\'t), learning core practices, and developing a sustainable home practice. Small groups (max 12) allow for personal attention and community building.',
+  },
+];
+---
+
+<Base title="Programs" description="Explore all mindfulness, yoga, breathwork, and community programs at Common Ground Portland — classes for every level, sliding scale fees available.">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="page-header__tag">What we offer</span>
+      <h1 class="page-header__title">Programs &amp; Classes</h1>
+      <p class="page-header__subtitle">
+        From free drop-in sits to in-depth courses, we offer something for every curiosity, schedule, and budget. Sliding scale fees available on all courses.
+      </p>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section" style="background:var(--color-bg);">
+    <div class="container">
+
+      <!-- Filter bar (visual only — fully functional filtering requires JS) -->
+      <div class="filter-bar" role="group" aria-label="Filter programs by category">
+        <button class="filter-btn active" type="button">All</button>
+        <button class="filter-btn" type="button">Meditation</button>
+        <button class="filter-btn" type="button">Yoga</button>
+        <button class="filter-btn" type="button">Breathwork</button>
+        <button class="filter-btn" type="button">Courses</button>
+      </div>
+
+      <div class="programs-grid">
+        {programs.map(p => (
+          <article class="program-card">
+            <div class="program-card__header">
+              <div class="program-card__icon" aria-hidden="true">{p.icon}</div>
+              <span class={`program-card__level ${p.levelClass}`}>{p.level}</span>
+            </div>
+            <span class={`card-tag card-tag--${p.categoryColor}`}>{p.category}</span>
+            <h2 class="program-card__name">{p.title}</h2>
+            <p class="program-card__teacher">with {p.teacher}</p>
+            <p class="program-card__desc">{p.desc}</p>
+            <div class="program-card__details">
+              <div class="program-detail">
+                <span class="program-detail__icon">🕐</span>
+                <span>{p.schedule}</span>
+              </div>
+              <div class="program-detail">
+                <span class="program-detail__icon">💳</span>
+                <span>{p.cost}</span>
+              </div>
+              {p.freeIntro && (
+                <div class="program-card__free-intro">
+                  ✓ Free intro session available
+                </div>
+              )}
+            </div>
+            <a href="#" class="btn btn--primary btn--sm" style="margin-top: 1rem;">Register →</a>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sliding scale note -->
+  <section class="section--sm" style="background: var(--color-peach-light);">
+    <div class="container text-center">
+      <span class="section-tag">Our commitment</span>
+      <h2 style="margin-bottom:1rem; font-size:1.75rem;">Money should never be a barrier</h2>
+      <p style="max-width:580px; margin-inline:auto; color:var(--color-muted); line-height:1.8; margin-bottom:1.5rem;">
+        All of our courses are available on a sliding scale. If cost is a barrier to your participation, please email us at <a href="mailto:hello@commongroundpdx.org" style="color:var(--color-sage);">hello@commongroundpdx.org</a> — we'll always find a way to include you. No questions asked.
+      </p>
+      <a href={withBase('/contact/')} class="btn btn--primary">Get in touch</a>
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  // Simple category filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Full filtering would be implemented here for a production build
+    });
+  });
+</script>

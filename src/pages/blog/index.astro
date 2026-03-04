@@ -1,0 +1,150 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/paths';
+
+const posts = [
+  {
+    category: 'Mindfulness Tips',
+    categoryColor: 'sage',
+    image: 'https://images.unsplash.com/photo-1499728603263-13726abce5fd?w=700&q=80&auto=format&fit=crop',
+    imageAlt: 'Person sitting quietly by a window in morning light, a cup of tea in hand',
+    title: 'The 5-Minute Practice That Actually Sticks',
+    author: 'Sarah Chen',
+    date: 'March 18, 2026',
+    excerpt: 'Most people try to start a meditation habit and fail — not because meditation doesn\'t work, but because they\'re starting too big. Here\'s the approach we recommend at Common Ground for building a practice that actually lasts.',
+    href: '#',
+  },
+  {
+    category: 'Community Stories',
+    categoryColor: 'peach',
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80&auto=format&fit=crop',
+    imageAlt: 'A diverse group of people laughing and talking together over tea after a community sit',
+    title: 'Saturday Mornings on Alberta Street',
+    author: 'Lena Fischer',
+    date: 'March 10, 2026',
+    excerpt: 'Every Saturday, thirty to two hundred people gather in silence together in our main hall. Volunteer Lena Fischer shares what keeps her showing up — and what she\'s witnessed happening in the tea circle afterward.',
+    href: '#',
+  },
+  {
+    category: 'Teacher Spotlight',
+    categoryColor: 'sky',
+    image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=80&auto=format&fit=crop',
+    imageAlt: 'Teacher James Okafor leading a breathwork session in a sunlit studio',
+    title: 'James Okafor on Why He Teaches Breathwork',
+    author: 'Marcus Williams',
+    date: 'February 28, 2026',
+    excerpt: 'Our breathwork teacher James Okafor didn\'t discover breathwork in a yoga studio. He found it in a hospital room, recovering from surgery. We sat down with him to understand what the breath has to teach us.',
+    href: '#',
+  },
+  {
+    category: 'Science of Meditation',
+    categoryColor: 'sand',
+    image: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=700&q=80&auto=format&fit=crop',
+    imageAlt: 'Brain scan imagery and research notes on a desk — illustrating neuroscience of mindfulness',
+    title: 'What Eight Weeks of MBSR Actually Does to Your Brain',
+    author: 'Dr. Yuki Tanaka',
+    date: 'February 15, 2026',
+    excerpt: 'The research on Mindfulness-Based Stress Reduction is unusually robust for a wellness intervention. Dr. Yuki Tanaka — who co-teaches our MBSR course — breaks down the findings in plain English.',
+    href: '#',
+  },
+  {
+    category: 'Practice',
+    categoryColor: 'sage',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80&auto=format&fit=crop',
+    imageAlt: 'Person in a gentle yoga pose, balancing on one leg in a bright studio',
+    title: 'How to Meditate When Your Mind Won\'t Cooperate',
+    author: 'Priya Nair',
+    date: 'January 30, 2026',
+    excerpt: 'The most common thing people say when they first come to Common Ground is "I can\'t meditate — my mind is too busy." Teacher Priya Nair addresses this head-on: that\'s not a problem. That\'s actually the practice.',
+    href: '#',
+  },
+  {
+    category: 'Community Stories',
+    categoryColor: 'peach',
+    image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=700&q=80&auto=format&fit=crop',
+    imageAlt: 'Omar and friends from Common Ground hiking together in the Columbia River Gorge',
+    title: 'From Skeptic to Saturday Regular: Omar\'s Story',
+    author: 'Omar Al-Rashid',
+    date: 'January 12, 2026',
+    excerpt: 'Omar Al-Rashid walked into his first community sit expecting to feel out of place. He ended up bringing three friends the following week. In his own words, here\'s what changed.',
+    href: '#',
+  },
+];
+---
+
+<Base title="Blog" description="Mindfulness tips, community stories, teacher spotlights, and science of meditation from the Common Ground community in Portland, Oregon.">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="page-header__tag">Ideas &amp; Stories</span>
+      <h1 class="page-header__title">The Common Ground Blog</h1>
+      <p class="page-header__subtitle">
+        Practical tips, community stories, science, and reflections from our teachers and members. Thoughtful writing for curious humans.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog posts -->
+  <section class="section" style="background:var(--color-bg);">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map(post => (
+          <article class="blog-card">
+            <img
+              class="blog-card__img"
+              src={post.image}
+              alt={post.imageAlt}
+              width="700"
+              height="394"
+              loading="lazy"
+            />
+            <div class="blog-card__body">
+              <span class={`blog-card__tag card-tag card-tag--${post.categoryColor}`}>{post.category}</span>
+              <h2 class="blog-card__title">{post.title}</h2>
+              <p class="blog-card__excerpt">{post.excerpt}</p>
+              <a href={post.href} class="blog-card__readmore" aria-label={`Read more: ${post.title}`}>
+                Read more →
+              </a>
+              <div class="blog-card__meta">
+                <span class="blog-card__author">By {post.author}</span>
+                <time datetime={post.date}>{post.date}</time>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Load more / subscribe -->
+      <div class="text-center" style="margin-top:3.5rem; padding-top:2.5rem; border-top:1px solid var(--color-border);">
+        <p style="color:var(--color-muted); margin-bottom:1.5rem; font-size:0.95rem;">
+          Get new posts delivered gently to your inbox — no noise, just good reading.
+        </p>
+        <form style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;max-width:400px;margin-inline:auto;" action="#" method="post" aria-label="Subscribe to blog updates">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            required
+            aria-label="Email address"
+            style="flex:1;min-width:200px;padding:0.75rem 1rem;border:2px solid var(--color-border);border-radius:var(--radius-pill);font-size:0.95rem;outline:none;transition:border-color 0.2s;"
+          />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories strip -->
+  <section class="section--sm" style="background:var(--color-white);border-top:1px solid var(--color-border);">
+    <div class="container text-center">
+      <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-muted);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;">Browse by topic</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+        {['All Posts', 'Mindfulness Tips', 'Community Stories', 'Teacher Spotlight', 'Practice', 'Science of Meditation'].map(cat => (
+          <a href="#" class="btn btn--outline btn--sm">{cat}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Base>

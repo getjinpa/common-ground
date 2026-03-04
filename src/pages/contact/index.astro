@@ -1,0 +1,242 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/paths';
+
+const hours = [
+  { day: 'Monday – Friday', time: '6:00 AM – 9:00 PM' },
+  { day: 'Saturday', time: '9:00 AM – 6:00 PM' },
+  { day: 'Sunday', time: '10:00 AM – 5:00 PM' },
+];
+---
+
+<Base title="Contact" description="Reach Common Ground Mindfulness Center in Portland, Oregon. Address, hours, phone, email, contact form, parking, and transit directions.">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="page-header__tag">We'd love to hear from you</span>
+      <h1 class="page-header__title">Get in Touch</h1>
+      <p class="page-header__subtitle">
+        Questions about programs, sliding scale fees, volunteering, or just curious about what we do? Drop us a line — we respond to every message.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" aria-labelledby="contact-heading">
+    <div class="container">
+      <h2 id="contact-heading" class="visually-hidden">Contact information and form</h2>
+      <div class="contact-inner">
+
+        <!-- Left column: Info -->
+        <div>
+          <div class="contact-info__group">
+            <p class="contact-info__label">Address</p>
+            <address class="contact-info__value" style="font-style:normal;">
+              Common Ground Mindfulness Center<br/>
+              2847 NE Alberta Street<br/>
+              Portland, OR 97211
+            </address>
+          </div>
+
+          <div class="contact-info__group">
+            <p class="contact-info__label">Phone</p>
+            <p class="contact-info__value">
+              <a href="tel:+15035550198">+1 (503) 555-0198</a>
+            </p>
+          </div>
+
+          <div class="contact-info__group">
+            <p class="contact-info__label">Email</p>
+            <p class="contact-info__value">
+              <a href="mailto:hello@commongroundpdx.org">hello@commongroundpdx.org</a>
+            </p>
+          </div>
+
+          <div class="contact-info__group">
+            <p class="contact-info__label">For program inquiries</p>
+            <p class="contact-info__value">
+              <a href="mailto:programs@commongroundpdx.org">programs@commongroundpdx.org</a>
+            </p>
+          </div>
+
+          <!-- Hours -->
+          <div class="contact-hours">
+            <h3 class="contact-hours__title">Center hours</h3>
+            {hours.map(h => (
+              <div class="hours-row">
+                <span class="hours-day">{h.day}</span>
+                <span class="hours-time">{h.time}</span>
+              </div>
+            ))}
+          </div>
+
+          <!-- Getting here -->
+          <div class="getting-here">
+            <h3 class="getting-here__title">Getting here</h3>
+            <div class="getting-here__item">
+              <span class="getting-here__icon">🚌</span>
+              <span>
+                <strong>TriMet Bus:</strong> Lines 72 (Alberta) and 24 (Fremont) stop at NE Alberta &amp; 28th Ave, one block from the center.
+              </span>
+            </div>
+            <div class="getting-here__item">
+              <span class="getting-here__icon">🚗</span>
+              <span>
+                <strong>Parking:</strong> Free street parking available on NE Alberta Street and surrounding streets. Avoid posted permit zones.
+              </span>
+            </div>
+            <div class="getting-here__item">
+              <span class="getting-here__icon">🚲</span>
+              <span>
+                <strong>Cycling:</strong> We're on the Alberta Arts District bike route. Covered bike parking available in the side alley.
+              </span>
+            </div>
+            <div class="getting-here__item">
+              <span class="getting-here__icon">♿</span>
+              <span>
+                <strong>Accessibility:</strong> Our space is fully wheelchair accessible. Please contact us in advance if you have specific accessibility needs and we'll ensure everything is arranged.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: Form -->
+        <div>
+          <div class="contact-form-wrapper">
+            <h2 class="contact-form-title">Send us a message</h2>
+            <form action="#" method="post" aria-label="Contact form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First name <span aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="firstName"
+                    class="form-input"
+                    required
+                    autocomplete="given-name"
+                    placeholder="Amara"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last name <span aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="last-name"
+                    name="lastName"
+                    class="form-input"
+                    required
+                    autocomplete="family-name"
+                    placeholder="Osei"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email address <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  required
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="topic">What's this about?</label>
+                <select id="topic" name="topic" class="form-select">
+                  <option value="">Select a topic...</option>
+                  <option value="programs">Programs &amp; classes</option>
+                  <option value="mbsr">MBSR course enquiry</option>
+                  <option value="sliding-scale">Sliding scale / financial aid</option>
+                  <option value="volunteer">Volunteering</option>
+                  <option value="corporate">Workplace mindfulness</option>
+                  <option value="teacher">Teacher enquiry</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Your message <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-textarea"
+                  required
+                  rows="6"
+                  placeholder="Tell us a little about yourself and how we can help..."
+                ></textarea>
+              </div>
+
+              <div class="form-group" style="display:flex;align-items:flex-start;gap:0.75rem;">
+                <input
+                  type="checkbox"
+                  id="newsletter"
+                  name="newsletter"
+                  style="width:18px;height:18px;margin-top:0.1rem;accent-color:var(--color-sage);flex-shrink:0;"
+                />
+                <label for="newsletter" style="font-size:0.875rem;color:var(--color-muted);cursor:pointer;line-height:1.6;">
+                  Also add me to the Common Ground newsletter for gentle weekly practice tips and community news.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;margin-top:0.5rem;">
+                Send message →
+              </button>
+
+              <p style="font-size:0.75rem;color:var(--color-muted);text-align:center;margin-top:1rem;line-height:1.6;">
+                We typically respond within 1–2 business days. For urgent matters, please call us directly.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map placeholder -->
+  <div style="background:var(--color-sage-light);padding:4rem 0;text-align:center;border-top:1px solid var(--color-border);">
+    <div class="container">
+      <div style="background:var(--color-border);border-radius:var(--radius-xl);height:300px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;max-width:900px;margin-inline:auto;">
+        <span style="font-size:2.5rem;" aria-hidden="true">📍</span>
+        <p style="font-family:var(--font-heading);font-weight:700;color:var(--color-heading);">2847 NE Alberta Street, Portland OR 97211</p>
+        <a
+          href="https://maps.google.com/?q=NE+Alberta+Street+Portland+OR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--primary btn--sm"
+        >
+          Open in Google Maps →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ strip -->
+  <section class="section--sm" style="background:var(--color-white);">
+    <div class="container" style="max-width:760px;">
+      <div class="section-header" style="margin-bottom:2rem;">
+        <span class="section-tag">Common questions</span>
+        <h2 class="section-title" style="font-size:1.75rem;">Quick answers</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        {[
+          { q: 'Do I need to book in advance?', a: 'Drop-in classes can be attended without booking. Courses and workshops require registration. The Saturday Community Sit is always walk-in.' },
+          { q: 'I\'ve never meditated before — is that OK?', a: 'Absolutely. Most of our programs are designed with beginners in mind, and even our open sits are welcoming to first-timers. Show up, sit down, breathe.' },
+          { q: 'What should I bring?', a: 'Just yourself. We have mats, blankets, bolsters, cushions, and blocks available to borrow. Wear comfortable clothing.' },
+          { q: 'Can I bring my children?', a: 'We ask that children under 12 be accompanied by an adult and are mindful of others during silent sessions. Check our calendar for family-specific events.' },
+        ].map(({ q, a }) => (
+          <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem 1.5rem;">
+            <h3 style="font-family:var(--font-heading);font-weight:700;color:var(--color-heading);font-size:1rem;margin-bottom:0.5rem;">{q}</h3>
+            <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;margin:0;">{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Base>

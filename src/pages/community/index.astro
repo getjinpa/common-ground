@@ -1,0 +1,257 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/paths';
+
+const values = [
+  {
+    icon: '🌍',
+    title: 'Secular & Inclusive',
+    desc: 'We welcome people of all faiths, no faith, and everything in between. Our programs are grounded in science and human connection, not religion.',
+  },
+  {
+    icon: '💚',
+    title: 'Radical Welcome',
+    desc: 'Every person who walks through our door deserves to feel at home. We actively work to dismantle barriers to access — financial, cultural, and otherwise.',
+  },
+  {
+    icon: '🔬',
+    title: 'Evidence-Based',
+    desc: 'We care about what actually works. Our programs draw on peer-reviewed research in neuroscience, psychology, and contemplative science.',
+  },
+  {
+    icon: '🤲',
+    title: 'Community First',
+    desc: 'We\'re a community center, not a wellness brand. The relationships formed here — between members, teachers, and neighbors — are the heart of what we do.',
+  },
+  {
+    icon: '⚖️',
+    title: 'Equitable Access',
+    desc: 'Sliding scale fees, free drop-in sessions, and outreach programs ensure that cost is never a reason someone misses out.',
+  },
+  {
+    icon: '🌱',
+    title: 'Growth & Humility',
+    desc: 'We\'re always learning. We listen to our community, course-correct when needed, and hold our own certainties lightly.',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Kenji Watanabe',
+    role: 'Member since 2019',
+    initial: 'K',
+    quote: `Three years ago I walked into Common Ground carrying what I can only describe as a backpack full of rocks — chronic work stress, a difficult divorce, and a growing sense that something had to change. I didn't know what meditation was, really. I thought it was for people who had their lives together. What I found instead was a community of people who were also figuring it out. The MBSR course, led by Sarah and Dr. Tanaka, didn't fix everything. But it gave me a relationship with my own mind that I'd never had before. I sleep now. I actually sleep. And I have friends here — real ones.`,
+  },
+  {
+    name: 'Blessing Adeyemi',
+    role: 'Member since 2020',
+    initial: 'B',
+    quote: `I'm a Black woman in Portland. Finding wellness spaces where I feel genuinely comfortable — not tolerated, but welcomed — is not easy. Common Ground is different. It's not perfect, but the staff and teachers take equity seriously. They've done the work on understanding whose narratives have historically dominated mindfulness in the West, and they're actively building something more representative. The community sits feel like the neighborhood. That matters deeply to me.`,
+  },
+  {
+    name: 'Lena Fischer',
+    role: 'Member & Volunteer since 2021',
+    initial: 'L',
+    quote: `I started volunteering at the Saturday community sit after my first year as a member, and it's become one of the most meaningful things in my week. There's something beautiful about sitting in silence with thirty strangers who all showed up to try to be a little more present. I've watched people come in anxious and leave lighter. I've watched friendships form in the tea circle after the sit. It's small, local, human — exactly what I think the world needs more of right now.`,
+  },
+  {
+    name: 'Omar Al-Rashid',
+    role: 'Member since 2022',
+    initial: 'O',
+    quote: `I was nervous about coming here as a Muslim man. Would it clash with my faith? Would people assume things about me? The secular framing actually made it easier — I didn't feel like I was being asked to adopt someone else's spirituality. The teachers are careful about language and respectful of different traditions. I've come to see my mindfulness practice as complementary to my faith, not in conflict with it. And I've made some genuinely good friends in James's breathwork class.`,
+  },
+];
+
+const initiatives = [
+  {
+    title: 'Free Saturday Community Sit',
+    desc: 'Every Saturday morning, our doors are open to the entire Portland community — no registration, no fee, no experience necessary. This is our anchor offering and the heart of Common Ground. Over 200 people attend on a typical Saturday.',
+  },
+  {
+    title: 'Sliding Scale Pricing',
+    desc: 'All courses and most programs are available on a sliding scale. We trust people to choose what they can genuinely afford. If you\'re not sure what to pay, email us — we\'ll figure it out together.',
+  },
+  {
+    title: 'Community Scholarship Fund',
+    desc: 'Made possible by generous members who contribute above the listed price, our scholarship fund fully covers program costs for community members facing financial hardship. To date, we\'ve supported over 180 scholarships.',
+  },
+  {
+    title: 'Neighborhood Outreach',
+    desc: 'We partner with local schools, homeless shelters, and community organizations to bring mindfulness practices directly into the community — particularly to populations with limited access to wellness resources.',
+  },
+  {
+    title: 'Pay-It-Forward',
+    desc: 'When checking out for any program, members can optionally add a "pay-it-forward" contribution. 100% goes to the scholarship fund. This model has raised over $40,000 since 2018.',
+  },
+];
+
+const volunteerRoles = [
+  'Front desk welcome team (Saturday mornings)',
+  'Tea & setup crew for community sit',
+  'Communications & social media',
+  'Community outreach partnerships',
+  'Grant writing & fundraising',
+  'Child minding during programs',
+  'Accessibility support',
+];
+---
+
+<Base title="Community" description="Learn about the Common Ground community — our values, initiatives, member stories, and how to get involved in our Portland mindfulness center.">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="page-header__tag">Our community</span>
+      <h1 class="page-header__title">You belong here</h1>
+      <p class="page-header__subtitle">
+        Common Ground was built by the community, for the community. Here's who we are, what we stand for, and how you can be a part of it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section welcome-section" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="welcome-inner">
+        <div>
+          <img
+            class="welcome-img"
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80&auto=format&fit=crop"
+            alt="Diverse group of people in conversation and connection in a warm community space"
+            width="700"
+            height="525"
+            loading="lazy"
+          />
+        </div>
+        <div class="welcome-content">
+          <span class="section-tag">Our story</span>
+          <h2 id="story-heading">How we started</h2>
+          <p>
+            Common Ground was founded in 2016 by Sarah Chen and Marcus Williams, two teachers who had seen first-hand how transformative mindfulness could be — and how inaccessible most mindfulness offerings in Portland were to the very people who might benefit most.
+          </p>
+          <p>
+            They started with a free weekly sit in a borrowed church hall on Alberta Street. Twenty-three people showed up the first week. The next week there were forty. Within a year, they had a space of their own, a small team of volunteer teachers, and a community that was writing its own story.
+          </p>
+          <p>
+            Today, Common Ground serves over 2,000 members each year, runs 15 programs, and employs 12 teachers — all while keeping the Saturday community sit free and open to everyone. The mission hasn't changed: make mindfulness genuinely accessible in Portland.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section community-values" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What we stand for</span>
+        <h2 id="values-heading" class="section-title">Our values</h2>
+        <p class="section-subtitle">These aren't aspirational statements on a wall. They're the principles that guide how we make every decision.</p>
+      </div>
+      <div class="values-grid">
+        {values.map(v => (
+          <div class="value-card">
+            <div class="value-card__icon" aria-hidden="true">{v.icon}</div>
+            <h3 class="value-card__title">{v.title}</h3>
+            <p class="value-card__desc">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Member Stories -->
+  <section class="section" style="background: var(--color-bg);" aria-labelledby="stories-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Member voices</span>
+        <h2 id="stories-heading" class="section-title">Stories from our community</h2>
+        <p class="section-subtitle">We are a community of humans figuring it out together. Here are some of the journeys that have unfolded here.</p>
+      </div>
+      <div class="grid-2">
+        {testimonials.map(t => (
+          <article class="testimonial">
+            <p class="testimonial__quote">{t.quote}</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar--placeholder" aria-hidden="true">{t.initial}</div>
+              <div>
+                <div class="testimonial__name">{t.name}</div>
+                <div class="testimonial__role">{t.role}</div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Initiatives -->
+  <section class="section initiatives-section" aria-labelledby="initiatives-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Access &amp; equity</span>
+        <h2 id="initiatives-heading" class="section-title">Community initiatives</h2>
+        <p class="section-subtitle">Access to wellbeing resources is a matter of equity. These programs reflect our commitment to serving everyone in Portland.</p>
+      </div>
+      <div style="max-width:760px; margin-inline:auto;">
+        {initiatives.map(i => (
+          <div class="initiative-item">
+            <h3 class="initiative-item__title">{i.title}</h3>
+            <p class="initiative-item__desc">{i.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer -->
+  <section class="section volunteer-section" aria-labelledby="volunteer-heading">
+    <div class="container">
+      <div class="volunteer-inner">
+        <div>
+          <span class="section-tag">Get involved</span>
+          <h2 id="volunteer-heading" style="margin-bottom:1rem;">Volunteer with us</h2>
+          <p style="color:var(--color-muted); line-height:1.8; margin-bottom:1.5rem;">
+            Common Ground runs largely on the goodwill of our volunteer community. Whether you can spare two hours a week or two hours a month, there's a meaningful role for you here.
+          </p>
+          <p style="color:var(--color-muted); line-height:1.8; margin-bottom:2rem;">
+            Current volunteer needs include:
+          </p>
+          <ul style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem;">
+            {volunteerRoles.map(role => (
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.95rem;color:var(--color-text);">
+                <span style="color:var(--color-sage);font-weight:700;flex-shrink:0;">✓</span>
+                {role}
+              </li>
+            ))}
+          </ul>
+          <a href={withBase('/contact/')} class="btn btn--primary">Get in touch to volunteer</a>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700&q=80&auto=format&fit=crop"
+            alt="Volunteers at Common Ground setting up chairs and preparing tea before a community meditation sit"
+            width="700"
+            height="525"
+            loading="lazy"
+            style="width:100%;border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);aspect-ratio:4/3;object-fit:cover;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section newsletter-section" aria-labelledby="join-heading">
+    <div class="container text-center">
+      <span class="section-tag" style="color:rgba(255,255,255,0.7);">Ready to join?</span>
+      <h2 id="join-heading" class="section-title">Come to a free sit first</h2>
+      <p class="section-subtitle" style="margin-bottom:2rem;">The best way to experience Common Ground is to show up on a Saturday morning. No registration, no fee. Just bring yourself.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+        <a href={withBase('/programs/')} class="btn btn--soft btn--lg">Saturday Community Sit</a>
+        <a href={withBase('/contact/')} class="btn btn--outline btn--lg" style="border-color:rgba(255,255,255,0.5);color:white;">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</Base>

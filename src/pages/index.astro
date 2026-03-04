@@ -1,0 +1,303 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../utils/paths';
+
+const programs = [
+  {
+    icon: '🧘',
+    title: 'Mindfulness Meditation',
+    desc: 'Drop into the present moment with guided sits suited for every level. Rooted in secular, evidence-based practice.',
+    href: withBase('/programs/'),
+  },
+  {
+    icon: '🌿',
+    title: 'Yoga for Wellbeing',
+    desc: 'Gentle, body-positive yoga integrating breath and movement. Classes welcome all shapes, abilities, and backgrounds.',
+    href: withBase('/programs/'),
+  },
+  {
+    icon: '🌬️',
+    title: 'Stress Reduction (MBSR)',
+    desc: 'Our 8-week Mindfulness-Based Stress Reduction course follows the evidence-based curriculum developed at UMass.',
+    href: withBase('/programs/'),
+  },
+  {
+    icon: '🤝',
+    title: 'Community Sit',
+    desc: 'Free weekly drop-in meditation open to the entire Portland community. No experience or registration needed.',
+    href: withBase('/programs/'),
+  },
+];
+
+const testimonials = [
+  {
+    quote: "I came to Common Ground during one of the hardest years of my life. What I found wasn't just meditation — I found a community that genuinely cares. The teachers here meet you where you are, no judgment, no pressure.",
+    name: 'Amara Osei',
+    role: 'Member since 2021',
+    initial: 'A',
+  },
+  {
+    quote: "The MBSR course completely changed how I relate to stress at work. I was skeptical going in — I'm a scientist, and I kept waiting for the woo-woo. It never came. Just practical, evidence-based tools that actually work.",
+    name: 'Daniel Park',
+    role: 'Member since 2022',
+    initial: 'D',
+  },
+  {
+    quote: "What I love most is that Common Ground is genuinely inclusive. As someone who isn't religious, I've often felt awkward in wellness spaces. Here, I feel completely at home. The sliding scale fees also meant I could actually afford to come.",
+    name: 'Sofia Reyes',
+    role: 'Member since 2020',
+    initial: 'S',
+  },
+];
+
+const events = [
+  {
+    day: '05',
+    month: 'Apr',
+    title: 'Morning Mindfulness — Open Sit',
+    time: '7:00 – 8:00 AM',
+    location: 'Main Hall',
+    type: 'Free',
+  },
+  {
+    day: '07',
+    month: 'Apr',
+    title: 'Yoga Basics: Floor & Flow',
+    time: '6:30 – 7:45 PM',
+    location: 'Studio B',
+    type: 'Class',
+  },
+  {
+    day: '09',
+    month: 'Apr',
+    title: 'MBSR Orientation Evening',
+    time: '6:00 – 7:30 PM',
+    location: 'Community Room',
+    type: 'Info Session',
+  },
+  {
+    day: '12',
+    month: 'Apr',
+    title: 'Community Sit & Tea',
+    time: '10:00 – 11:30 AM',
+    location: 'Main Hall',
+    type: 'Free',
+  },
+];
+---
+
+<Base title="Home" description="Common Ground Mindfulness Center — meditation, yoga, and community wellness programs in Portland, Oregon. Welcoming everyone.">
+
+  <!-- ====================================================
+       HERO
+       ==================================================== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+          Portland, Oregon · Est. 2016
+        </div>
+        <h1 class="hero__heading">
+          Find your <em>ground.</em>
+        </h1>
+        <p class="hero__subheading">
+          Common Ground is a secular mindfulness and community wellness center where everyone is welcome — beginners, skeptics, seekers, and longtime practitioners alike. Come as you are.
+        </p>
+        <div class="hero__ctas">
+          <a href={withBase('/programs/')} class="btn btn--primary btn--lg">Explore Programs</a>
+          <a href={withBase('/community/')} class="btn btn--outline btn--lg">Join our Community</a>
+        </div>
+      </div>
+      <div class="hero__img-wrapper">
+        <img
+          class="hero__img"
+          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80&auto=format&fit=crop"
+          alt="Group of people meditating together in a warm, sunlit studio at Common Ground"
+          width="800"
+          height="600"
+          loading="eager"
+        />
+        <div class="hero__img-badge" aria-hidden="true">
+          <span class="hero__img-badge-icon">🌿</span>
+          <div>
+            <div class="hero__img-badge-text">Free intro class</div>
+            <div class="hero__img-badge-sub">No experience needed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       STATS STRIP
+       ==================================================== -->
+  <div class="stats-strip" aria-label="Common Ground at a glance">
+    <div class="container">
+      <div class="stat-item">
+        <span class="stat-item__number">2,000+</span>
+        <span class="stat-item__label">members</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__number">15</span>
+        <span class="stat-item__label">programs</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__number">12</span>
+        <span class="stat-item__label">teachers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__number">Est. 2016</span>
+        <span class="stat-item__label">in Portland</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       WELCOME / ABOUT
+       ==================================================== -->
+  <section class="section welcome-section" aria-labelledby="welcome-heading">
+    <div class="container">
+      <div class="welcome-inner">
+        <div>
+          <img
+            class="welcome-img"
+            src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=700&q=80&auto=format&fit=crop"
+            alt="Participants sharing tea and conversation in Common Ground's community room after a meditation session"
+            width="700"
+            height="525"
+            loading="lazy"
+          />
+        </div>
+        <div class="welcome-content">
+          <span class="section-tag">Welcome</span>
+          <h2 id="welcome-heading">A place to belong</h2>
+          <p>
+            Common Ground opened its doors in 2016 with a simple belief: that the benefits of mindfulness and community wellness should be available to everyone in Portland — not just those with the right background, belief, or bank account.
+          </p>
+          <p>
+            We're a secular center. That means our programs are grounded in science and human connection, not any particular religion or spiritual tradition. You don't need to believe in anything except maybe the value of paying attention.
+          </p>
+          <p>
+            Whether you're recovering from burnout, managing anxiety, curious about meditation, or simply looking to meet good people — you'll find your place here.
+          </p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top: 0.5rem;">
+            <a href={withBase('/community/')} class="btn btn--primary">Our Story</a>
+            <a href={withBase('/programs/')} class="btn btn--outline">Browse Programs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FEATURED PROGRAMS
+       ==================================================== -->
+  <section class="section programs-section" aria-labelledby="programs-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What we offer</span>
+        <h2 id="programs-heading" class="section-title">Programs for everyone</h2>
+        <p class="section-subtitle">From drop-in meditation to in-depth courses, we meet you where you are. All backgrounds, all bodies, all levels of experience.</p>
+      </div>
+      <div class="programs-section-grid">
+        {programs.map(p => (
+          <a href={p.href} class="mini-program-card" style="text-decoration:none;">
+            <span class="mini-program-card__icon" aria-hidden="true">{p.icon}</span>
+            <h3 class="mini-program-card__title">{p.title}</h3>
+            <p class="mini-program-card__desc">{p.desc}</p>
+          </a>
+        ))}
+      </div>
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href={withBase('/programs/')} class="btn btn--outline btn--lg">See all 15 programs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       TESTIMONIALS
+       ==================================================== -->
+  <section class="section" style="background:var(--color-bg);" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What members say</span>
+        <h2 id="testimonials-heading" class="section-title">Real people, real change</h2>
+        <p class="section-subtitle">We let our community do the talking. Here are a few of the stories that mean the most to us.</p>
+      </div>
+      <div class="grid-3">
+        {testimonials.map(t => (
+          <article class="testimonial">
+            <p class="testimonial__quote">{t.quote}</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar--placeholder" aria-hidden="true">{t.initial}</div>
+              <div>
+                <div class="testimonial__name">{t.name}</div>
+                <div class="testimonial__role">{t.role}</div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       THIS WEEK AT COMMON GROUND
+       ==================================================== -->
+  <section class="section events-section" aria-labelledby="events-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What's on</span>
+        <h2 id="events-heading" class="section-title">This week at Common Ground</h2>
+        <p class="section-subtitle">Drop in, try something new, or bring a friend. All are welcome at every open session.</p>
+      </div>
+      <div class="events-list">
+        {events.map(e => (
+          <article class="event-item">
+            <div class="event-date" aria-label={`${e.day} ${e.month}`}>
+              <div class="event-date__day">{e.day}</div>
+              <div class="event-date__month">{e.month}</div>
+            </div>
+            <div class="event-divider" aria-hidden="true"></div>
+            <div class="event-info">
+              <h3 class="event-title">{e.title}</h3>
+              <div class="event-meta">
+                <span>🕐 {e.time}</span>
+                <span>📍 {e.location}</span>
+              </div>
+            </div>
+            <span class="event-type">{e.type}</span>
+          </article>
+        ))}
+      </div>
+      <div class="text-center" style="margin-top:2rem;">
+        <a href={withBase('/programs/')} class="btn btn--soft">View full schedule →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       NEWSLETTER CTA
+       ==================================================== -->
+  <section class="section newsletter-section" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <span class="section-tag" style="color:rgba(255,255,255,0.7);">Stay in touch</span>
+      <h2 id="newsletter-heading" class="section-title">Weekly wisdom, no spam</h2>
+      <p class="section-subtitle">Get gentle reminders to breathe, practice, and connect — plus early access to new programs and community events.</p>
+      <form class="newsletter-form" action="#" method="post" aria-label="Newsletter signup">
+        <input
+          type="email"
+          name="email"
+          class="newsletter-input"
+          placeholder="Your email address"
+          required
+          aria-label="Email address"
+        />
+        <button type="submit" class="newsletter-btn">Sign me up</button>
+      </form>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:1rem;">We respect your inbox. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+</Base>

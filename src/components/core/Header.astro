@@ -1,0 +1,144 @@
+---
+import { withBase, stripBase } from '../../utils/paths';
+
+interface Props {
+  siteConfig: any;
+}
+const { siteConfig } = Astro.props;
+const navItems = siteConfig?.navigation?.main ?? [];
+const currentPath = stripBase(Astro.url.pathname);
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <!-- Logo -->
+    <a href={withBase('/')} class="site-logo" aria-label="Common Ground — Home">
+      <svg class="site-logo__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Ground base -->
+        <ellipse cx="18" cy="28" rx="13" ry="3.5" fill="#D4C5A9" />
+        <!-- Main stem -->
+        <path d="M18 27 C18 27 18 16 18 12" stroke="#3D5E3C" stroke-width="2" stroke-linecap="round"/>
+        <!-- Big leaf left -->
+        <path d="M18 18 C18 18 10 15 8 9 C8 9 16 9 18 18Z" fill="#5B7B5A"/>
+        <!-- Big leaf right -->
+        <path d="M18 14 C18 14 26 11 28 5 C28 5 20 5 18 14Z" fill="#3D5E3C"/>
+        <!-- Small leaf left -->
+        <path d="M18 23 C18 23 13 21 12 17 C12 17 17 17 18 23Z" fill="#7A9D79"/>
+      </svg>
+      <span class="site-logo__text">Common Ground</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+      {navItems.map((item: { label: string; url: string }) => {
+        const href = withBase(item.url);
+        const isActive = item.url === '/'
+          ? currentPath === '/'
+          : currentPath.startsWith(item.url);
+        return (
+          <a
+            href={href}
+            class={`site-nav__link${isActive ? ' active' : ''}`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-header__actions">
+      <a href={withBase('/programs/')} class="btn btn--primary btn--sm header-register-btn" aria-label="View programs and register">
+        Explore Programs
+      </a>
+      <!-- Mobile hamburger -->
+      <button
+        class="nav-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        id="nav-toggle-btn"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <div class="mobile-nav__panel">
+    <button
+      class="mobile-nav__close"
+      aria-label="Close navigation menu"
+      id="mobile-nav-close"
+    >
+      ✕
+    </button>
+    <nav class="mobile-nav__links" aria-label="Mobile navigation">
+      {navItems.map((item: { label: string; url: string }) => {
+        const href = withBase(item.url);
+        const isActive = item.url === '/'
+          ? currentPath === '/'
+          : currentPath.startsWith(item.url);
+        return (
+          <a
+            href={href}
+            class={`mobile-nav__link${isActive ? ' active' : ''}`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+    <div class="mobile-nav__cta">
+      <a href={withBase('/programs/')} class="btn btn--primary" style="width:100%;justify-content:center;">
+        Explore Programs
+      </a>
+    </div>
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+      <p style="font-size:0.8rem; color:var(--color-muted); line-height:1.6;">
+        2847 NE Alberta Street<br/>
+        Portland, OR 97211<br/>
+        <a href="tel:+15035550198" style="color:var(--color-sage);">+1 (503) 555-0198</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('nav-toggle-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const closeBtn = document.getElementById('mobile-nav-close');
+
+  function openNav() {
+    mobileNav?.classList.add('is-open');
+    toggleBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  }
+
+  function closeNav() {
+    mobileNav?.classList.remove('is-open');
+    toggleBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    toggleBtn?.focus();
+  }
+
+  toggleBtn?.addEventListener('click', openNav);
+  closeBtn?.addEventListener('click', closeNav);
+
+  mobileNav?.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav?.classList.contains('is-open')) {
+      closeNav();
+    }
+  });
+</script>

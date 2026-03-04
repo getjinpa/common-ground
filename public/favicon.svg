@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Ground -->
+  <ellipse cx="16" cy="26" rx="11" ry="3" fill="#D4C5A9"/>
+  <!-- Stem -->
+  <path d="M16 25 C16 25 16 15 16 11" stroke="#3D5E3C" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <!-- Left leaf -->
+  <path d="M16 17 C16 17 9 14 7 8 C7 8 14 8 16 17Z" fill="#5B7B5A"/>
+  <!-- Right leaf -->
+  <path d="M16 13 C16 13 23 10 25 4 C25 4 18 4 16 13Z" fill="#3D5E3C"/>
+  <!-- Small left leaf -->
+  <path d="M16 21 C16 21 12 19.5 11 16 C11 16 15.5 16 16 21Z" fill="#7A9D79"/>
+</svg>
