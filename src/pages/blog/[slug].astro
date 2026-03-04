@@ -2,6 +2,17 @@
 import Base from '../../layouts/Base.astro';
 import { withBase } from '../../utils/paths';
 
+export function getStaticPaths() {
+  return [
+    { params: { slug: '5-minute-practice' } },
+    { params: { slug: 'saturday-mornings-alberta-street' } },
+    { params: { slug: 'james-okafor-breathwork' } },
+    { params: { slug: 'mbsr-eight-weeks-brain' } },
+    { params: { slug: 'meditate-busy-mind' } },
+    { params: { slug: 'skeptic-to-saturday-regular' } },
+  ];
+}
+
 const { slug } = Astro.params;
 ---
 
