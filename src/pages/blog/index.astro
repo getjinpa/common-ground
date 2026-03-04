@@ -12,7 +12,7 @@ const posts = [
     author: 'Sarah Chen',
     date: 'March 18, 2026',
     excerpt: 'Most people try to start a meditation habit and fail — not because meditation doesn\'t work, but because they\'re starting too big. Here\'s the approach we recommend at Common Ground for building a practice that actually lasts.',
-    href: '#',
+    href: withBase('/blog/5-minute-practice/'),
   },
   {
     category: 'Community Stories',
@@ -23,7 +23,7 @@ const posts = [
     author: 'Lena Fischer',
     date: 'March 10, 2026',
     excerpt: 'Every Saturday, thirty to two hundred people gather in silence together in our main hall. Volunteer Lena Fischer shares what keeps her showing up — and what she\'s witnessed happening in the tea circle afterward.',
-    href: '#',
+    href: withBase('/blog/saturday-mornings-alberta-street/'),
   },
   {
     category: 'Teacher Spotlight',
@@ -34,7 +34,7 @@ const posts = [
     author: 'Marcus Williams',
     date: 'February 28, 2026',
     excerpt: 'Our breathwork teacher James Okafor didn\'t discover breathwork in a yoga studio. He found it in a hospital room, recovering from surgery. We sat down with him to understand what the breath has to teach us.',
-    href: '#',
+    href: withBase('/blog/james-okafor-breathwork/'),
   },
   {
     category: 'Science of Meditation',
@@ -45,7 +45,7 @@ const posts = [
     author: 'Dr. Yuki Tanaka',
     date: 'February 15, 2026',
     excerpt: 'The research on Mindfulness-Based Stress Reduction is unusually robust for a wellness intervention. Dr. Yuki Tanaka — who co-teaches our MBSR course — breaks down the findings in plain English.',
-    href: '#',
+    href: withBase('/blog/mbsr-eight-weeks-brain/'),
   },
   {
     category: 'Practice',
@@ -56,7 +56,7 @@ const posts = [
     author: 'Priya Nair',
     date: 'January 30, 2026',
     excerpt: 'The most common thing people say when they first come to Common Ground is "I can\'t meditate — my mind is too busy." Teacher Priya Nair addresses this head-on: that\'s not a problem. That\'s actually the practice.',
-    href: '#',
+    href: withBase('/blog/meditate-busy-mind/'),
   },
   {
     category: 'Community Stories',
@@ -67,7 +67,7 @@ const posts = [
     author: 'Omar Al-Rashid',
     date: 'January 12, 2026',
     excerpt: 'Omar Al-Rashid walked into his first community sit expecting to feel out of place. He ended up bringing three friends the following week. In his own words, here\'s what changed.',
-    href: '#',
+    href: withBase('/blog/skeptic-to-saturday-regular/'),
   },
 ];
 ---
@@ -91,17 +91,21 @@ const posts = [
       <div class="blog-grid">
         {posts.map(post => (
           <article class="blog-card">
-            <img
-              class="blog-card__img"
-              src={post.image}
-              alt={post.imageAlt}
-              width="700"
-              height="394"
-              loading="lazy"
-            />
+            <a href={post.href} class="blog-card__img-link" tabindex="-1" aria-hidden="true">
+              <img
+                class="blog-card__img"
+                src={post.image}
+                alt={post.imageAlt}
+                width="700"
+                height="394"
+                loading="lazy"
+              />
+            </a>
             <div class="blog-card__body">
               <span class={`blog-card__tag card-tag card-tag--${post.categoryColor}`}>{post.category}</span>
-              <h2 class="blog-card__title">{post.title}</h2>
+              <h2 class="blog-card__title">
+                <a href={post.href} style="color:inherit;text-decoration:none;">{post.title}</a>
+              </h2>
               <p class="blog-card__excerpt">{post.excerpt}</p>
               <a href={post.href} class="blog-card__readmore" aria-label={`Read more: ${post.title}`}>
                 Read more →
@@ -118,19 +122,9 @@ const posts = [
       <!-- Load more / subscribe -->
       <div class="text-center" style="margin-top:3.5rem; padding-top:2.5rem; border-top:1px solid var(--color-border);">
         <p style="color:var(--color-muted); margin-bottom:1.5rem; font-size:0.95rem;">
-          Get new posts delivered gently to your inbox — no noise, just good reading.
+          More stories coming soon. Check back regularly for new posts from our teachers and community.
         </p>
-        <form style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;max-width:400px;margin-inline:auto;" action="#" method="post" aria-label="Subscribe to blog updates">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email address"
-            required
-            aria-label="Email address"
-            style="flex:1;min-width:200px;padding:0.75rem 1rem;border:2px solid var(--color-border);border-radius:var(--radius-pill);font-size:0.95rem;outline:none;transition:border-color 0.2s;"
-          />
-          <button type="submit" class="btn btn--primary">Subscribe</button>
-        </form>
+        <a href={withBase('/programs/')} class="btn btn--outline">Explore Our Programs →</a>
       </div>
     </div>
   </section>

@@ -9,7 +9,7 @@ const hours = [
 ];
 ---
 
-<Base title="Contact" description="Reach Common Ground Mindfulness Center in Portland, Oregon. Address, hours, phone, email, contact form, parking, and transit directions.">
+<Base title="Contact" description="Reach Common Ground Mindfulness Center in Portland, Oregon. Address, hours, phone, email, parking, and transit directions.">
 
   <!-- Page Header -->
   <section class="page-header">
@@ -25,7 +25,7 @@ const hours = [
   <!-- Contact Section -->
   <section class="section contact-section" aria-labelledby="contact-heading">
     <div class="container">
-      <h2 id="contact-heading" class="visually-hidden">Contact information and form</h2>
+      <h2 id="contact-heading" class="visually-hidden">Contact information</h2>
       <div class="contact-inner">
 
         <!-- Left column: Info -->
@@ -101,97 +101,16 @@ const hours = [
           </div>
         </div>
 
-        <!-- Right column: Form -->
+        <!-- Right column: Email contact -->
         <div>
-          <div class="contact-form-wrapper">
-            <h2 class="contact-form-title">Send us a message</h2>
-            <form action="#" method="post" aria-label="Contact form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="first-name">First name <span aria-hidden="true">*</span></label>
-                  <input
-                    type="text"
-                    id="first-name"
-                    name="firstName"
-                    class="form-input"
-                    required
-                    autocomplete="given-name"
-                    placeholder="Amara"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="last-name">Last name <span aria-hidden="true">*</span></label>
-                  <input
-                    type="text"
-                    id="last-name"
-                    name="lastName"
-                    class="form-input"
-                    required
-                    autocomplete="family-name"
-                    placeholder="Osei"
-                  />
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="email">Email address <span aria-hidden="true">*</span></label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-input"
-                  required
-                  autocomplete="email"
-                  placeholder="you@example.com"
-                />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="topic">What's this about?</label>
-                <select id="topic" name="topic" class="form-select">
-                  <option value="">Select a topic...</option>
-                  <option value="programs">Programs &amp; classes</option>
-                  <option value="mbsr">MBSR course enquiry</option>
-                  <option value="sliding-scale">Sliding scale / financial aid</option>
-                  <option value="volunteer">Volunteering</option>
-                  <option value="corporate">Workplace mindfulness</option>
-                  <option value="teacher">Teacher enquiry</option>
-                  <option value="other">Something else</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="message">Your message <span aria-hidden="true">*</span></label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="form-textarea"
-                  required
-                  rows="6"
-                  placeholder="Tell us a little about yourself and how we can help..."
-                ></textarea>
-              </div>
-
-              <div class="form-group" style="display:flex;align-items:flex-start;gap:0.75rem;">
-                <input
-                  type="checkbox"
-                  id="newsletter"
-                  name="newsletter"
-                  style="width:18px;height:18px;margin-top:0.1rem;accent-color:var(--color-sage);flex-shrink:0;"
-                />
-                <label for="newsletter" style="font-size:0.875rem;color:var(--color-muted);cursor:pointer;line-height:1.6;">
-                  Also add me to the Common Ground newsletter for gentle weekly practice tips and community news.
-                </label>
-              </div>
-
-              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;margin-top:0.5rem;">
-                Send message →
-              </button>
-
-              <p style="font-size:0.75rem;color:var(--color-muted);text-align:center;margin-top:1rem;line-height:1.6;">
-                We typically respond within 1–2 business days. For urgent matters, please call us directly.
-              </p>
-            </form>
+          <div style="background:var(--color-white);border:1px solid var(--color-border);border-radius:16px;padding:2.5rem;">
+            <h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:700;margin-bottom:1rem;color:var(--color-heading);">Send us a Message</h3>
+            <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1.5rem;">
+              For program enquiries, sliding scale questions, volunteering, or general information, email us directly. We respond to every message, usually within two business days.
+            </p>
+            <a href="mailto:hello@commonground-pdx.org" class="btn btn--primary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+              hello@commonground-pdx.org
+            </a>
           </div>
         </div>
       </div>

@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/paths';
+
+const { slug } = Astro.params;
+---
+
+<Base
+  title="Blog Post"
+  description="A post from the Common Ground blog."
+>
+  <section class="page-header">
+    <div class="container">
+      <span class="page-header__tag">Blog</span>
+      <h1 class="page-header__title">Article Coming Soon</h1>
+      <p class="page-header__subtitle">
+        This post will be available shortly. We're working on bringing you more thoughtful writing from our teachers and community.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--color-bg);">
+    <div class="container" style="max-width:640px;text-align:center;">
+      <div style="background:var(--color-white);border:1px solid var(--color-border);border-radius:16px;padding:3rem;">
+        <p style="font-size:3rem;margin-bottom:1rem;">✍️</p>
+        <h2 style="font-family:var(--font-heading);font-size:1.5rem;margin-bottom:1rem;color:var(--color-heading);">Full post coming soon</h2>
+        <p style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem;">
+          Our teachers and community members are writing thoughtful pieces on mindfulness, practice, and everyday life. This article will be published shortly.
+        </p>
+        <a href={withBase('/blog/')} class="btn btn--outline">← Back to Blog</a>
+      </div>
+    </div>
+  </section>
+</Base>
