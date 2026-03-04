@@ -94,7 +94,7 @@ const posts = [
             <a href={post.href} class="blog-card__img-link" tabindex="-1" aria-hidden="true">
               <img
                 class="blog-card__img"
-                src={post.image}
+                src={withBase(post.image)}
                 alt={post.imageAlt}
                 width="700"
                 height="394"
